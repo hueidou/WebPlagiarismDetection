@@ -31,3 +31,17 @@
 
 * [mozilla/readability](https://github.com/mozilla/readability/)
 * [Kenshin/simpread](https://github.com/Kenshin/simpread/)
+
+## 其他
+
+### 搜索引擎服务
+
+根据关键字符串获取结果列表，需要支持：
+* 返回指定的结果个数、结果总数
+* 根据一定状态，支持在第一次返回结果后，返回更多的结果
+* 真实的url地址（类似baidu等结果链接非真实url地址）
+
+* [MagicBaidu](https://github.com/1049451037/MagicBaidu)
+* [MagicGoogle](https://github.com/howie6879/magic_google)
+* [toapi-search](https://github.com/toapi/toapi-search)
+* [toapi](https://github.com/gaojiuli/toapi)

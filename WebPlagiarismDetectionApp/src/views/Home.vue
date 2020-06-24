@@ -1,44 +1,35 @@
 <template>
   <div class="home">
     <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
+      <el-table-column prop="createTime" label="创建时间" :formatter="dateFormatter"></el-table-column>
+      <el-table-column prop="detectBeginTime" label="检测开始时间" :formatter="dateFormatter"></el-table-column>
+      <el-table-column prop="detectEndTime" label="检测结束时间" :formatter="dateFormatter"></el-table-column>
     </el-table>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import { format } from "date-fns";
 
 export default {
   name: "Home",
   components: {},
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ]
+      tableData: []
     };
+  },
+  created() {
+    this.$http.get("/api/wpds").then(response => {
+      this.tableData = response.data;
+    });
+  },
+  methods: {
+    dateFormatter(row, column, cellValue, index) {
+      return format(new Date(cellValue), "yyyy-MM-dd HH:mm:ss");
+    }
   }
 };
 </script>

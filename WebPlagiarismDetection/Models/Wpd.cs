@@ -1,6 +1,6 @@
 using System;
 
-namespace WebPlagiarismDetection.ViewModels
+namespace WebPlagiarismDetection.Models
 {
     /// <summary>
     /// 检测
@@ -18,9 +18,19 @@ namespace WebPlagiarismDetection.ViewModels
         public string Title { get; set; }
 
         /// <summary>
-        /// 内容
+        /// 文件
         /// </summary>
-        public string Content { get; set; }
+        public byte[] File { get; set; }
+
+        /// <summary>
+        /// 检测文本
+        /// </summary>
+        public string Text { get; set; }
+
+        /// <summary>
+        /// 检测结果
+        /// </summary>
+        public string Result { get; set; }
 
         /// <summary>
         /// 创建时间

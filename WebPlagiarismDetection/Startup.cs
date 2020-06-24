@@ -9,11 +9,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebPlagiarismDetection.Models;
 
 namespace WebPlagiarismDetection
 {
@@ -31,8 +33,13 @@ namespace WebPlagiarismDetection
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
-            
+
             services.AddControllers();
+
+            // Sqlite数据库，https://docs.microsoft.com/zh-cn/ef/core/providers/sqlite/?tabs=dotnet-core-cli
+
+            services.AddDbContext<WpdContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("WpdDatabase")));
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

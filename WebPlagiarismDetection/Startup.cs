@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebPlagiarismDetection.BackgroundServices;
 using WebPlagiarismDetection.Models;
 
 namespace WebPlagiarismDetection
@@ -35,6 +36,8 @@ namespace WebPlagiarismDetection
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
             services.AddControllers();
+
+            services.AddHostedService<Worker>();
 
             // Sqlite数据库，https://docs.microsoft.com/zh-cn/ef/core/providers/sqlite/?tabs=dotnet-core-cli
 

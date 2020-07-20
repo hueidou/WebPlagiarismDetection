@@ -41,6 +41,11 @@
 * 根据一定状态，支持在第一次返回结果后，返回更多的结果
 * 真实的url地址（类似baidu等结果链接非真实url地址）
 
+根据【关键词 vs】可以通过搜索引擎获取相近的词（n个相近词），放到句子内，来获取更多相关搜索结果：
+* 分句 -> 分词
+* 比如一个句子包含十个词，那通过组合，当n等于1时，每个词有两种选择，一共有2的10次方，1024种
+* 太多的话，可以限制保留原词个数，比如【至少】保留7个原词，则一共有C(10,7)，120种
+
 * [MagicBaidu](https://github.com/1049451037/MagicBaidu)
 * [MagicGoogle](https://github.com/howie6879/magic_google)
 * [toapi-search](https://github.com/toapi/toapi-search)

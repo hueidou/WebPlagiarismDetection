@@ -60,7 +60,12 @@
 # 开发环境
 
 ```sh
+# ef
 dotnet tool install --global dotnet-ef
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+
+# node
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```

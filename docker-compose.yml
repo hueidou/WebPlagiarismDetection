@@ -25,9 +25,18 @@ services:
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 3366:8080
 
   tika-server:
     image: apache/tika
     ports:
       - 9998:9998
+
+  s3:
+    image: minio/minio
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data

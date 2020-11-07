@@ -42,7 +42,7 @@ namespace WebPlagiarismDetection
             // Sqlite数据库，https://docs.microsoft.com/zh-cn/ef/core/providers/sqlite/?tabs=dotnet-core-cli
 
             services.AddDbContext<WpdContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("WpdDatabase")));
+                options.UseMySql(Configuration.GetConnectionString("WpdDatabase")));
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

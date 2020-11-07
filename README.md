@@ -50,3 +50,17 @@
 * [MagicGoogle](https://github.com/howie6879/magic_google)
 * [toapi-search](https://github.com/toapi/toapi-search)
 * [toapi](https://github.com/gaojiuli/toapi)
+
+
+### Tika
+
+参考：https://cwiki.apache.org/confluence/display/TIKA/TikaServer
+
+
+# 开发环境
+
+```sh
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```

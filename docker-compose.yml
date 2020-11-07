@@ -12,11 +12,22 @@ services:
   #   ports:
   #     - 80
 
-  sqlite-web:
-    image: coleifer/sqlite-web
-    environment: 
-      - SQLITE_DATABASE=wpd.db
-    volumes:
-      - /app/wpd/data/sqlite:/data
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    #volumes:
+    #  - /app/wpd/data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
     ports:
       - 8080:8080
+
+  tika-server:
+    image: apache/tika
+    ports:
+      - 9998:9998
